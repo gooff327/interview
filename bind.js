@@ -1,9 +1,9 @@
 const foo = function () {
     console.log(this.bar)
 }
-Function.prototype.bind = function (context) {
-    const fn = this
-    return () => fn.call(context)
+Function.prototype.mini_bind = function (context) {
+    console.log(this)
+    return () => this.call(context)
 }
-const baz = foo.bind({bar: 'hello world'})
+const baz = foo.mini_bind({bar: 'hello world'})
 baz()
